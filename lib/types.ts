@@ -1,5 +1,7 @@
-type Section = {
-
+export type Section = {
+  metadata: any
+  sys: any
+  fields: any
 }
 
 export type PageType = {

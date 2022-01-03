@@ -14,7 +14,5 @@ export const fetchPageBySlug = async (slug: string) : Promise<ResultType> => {
 
   const res = await client.getEntries<PageType>(query)
 
-  const hasErrors = !!res.errors?.length
-
-  return hasErrors ? undefined : res.items[0]?.fields
+  return !!res.errors?.length ? undefined : res.items[0]?.fields
 }
