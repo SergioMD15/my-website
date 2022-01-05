@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+import { TopMenu } from "../TopMenu"
 
 type Props = {
   children: ReactNode
@@ -7,7 +8,10 @@ type Props = {
 export const Layout = ({ children } : Props) => {
   return (
     <>
-      {children}
+      <TopMenu/>
+      <div className="p-5">
+        {children}
+      </div>
     </>
   )
 }
