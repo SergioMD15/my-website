@@ -18,7 +18,7 @@ const tabs = [
 
 export const TopMenu = () => {
   return (
-    <div className='flex flex-row h-20 px-4 sticky top-0 z-50 bg-emerald-200'>
+    <div className='flex flex-row h-20 px-4 sticky top-0 z-50 bg-white'>
       <Logo />
       <div className='flex flex-row'>
         {tabs.map(tab => (

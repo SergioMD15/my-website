@@ -8,7 +8,7 @@ type Props = {
 export const Tab = ({ label, href } : Props) => {
   return (
     <Link href={href} passHref={true}>
-      <a className='flex items-center hover:bg-emerald-300 text-lg px-4'>
+      <a className='flex items-center hover:bg-blue-100 text-xl px-4'>
         {label}
       </a>
     </Link>
