@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Link from 'next/link'
 
 type ButtonType = 'primary' | 'secondary'
 
@@ -27,17 +28,19 @@ export const Button = ({
   const { backgroundColor, borderColor } = ButtonTypeStyles[type]
 
   return (
-    <a href={href}>
-      <button
-        className={cn(
-          'py-2 px-8 rounded-full border-2',
-          'font-bold',
-          backgroundColor,
-          borderColor
-        )}
-      >
-        {children}
-      </button>
-    </a>
+    <Link href={href} passHref>
+      <a>
+        <button
+          className={cn(
+            'py-2 px-8 rounded-full border-2',
+            'font-bold',
+            backgroundColor,
+            borderColor
+          )}
+        >
+          {children}
+        </button>
+      </a>
+    </Link>
   )
 }

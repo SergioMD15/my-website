@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { IconType } from 'react-icons'
 import { FaGithubSquare } from 'react-icons/fa'
@@ -30,11 +31,13 @@ type SocialIconProps = {
 
 const SocialIcon = ({ href, icon } : SocialIconProps) => {
   return (
-    <a href={href}>
-      <IconContext.Provider value={{ size: '36px', color: '#111827' }}>
-        {React.createElement(icon, null)}
-      </IconContext.Provider>
-    </a>
+    <Link href={href} passHref>
+      <a>
+        <IconContext.Provider value={{ size: '36px', color: '#111827' }}>
+          {React.createElement(icon, null)}
+        </IconContext.Provider>
+      </a>
+    </Link>
   )
 }
 

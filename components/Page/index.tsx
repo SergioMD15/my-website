@@ -8,13 +8,15 @@ type Props = {
 }
 
 const Page = ({ pageInfo } : Props) => {
+  const hasSections = pageInfo.sections && pageInfo.sections.length > 0
+
   return (
     <Layout>
       <PageHeader
         title={pageInfo.title}
         shortDescription={pageInfo.shortDescription}
       />
-      {pageInfo.sections.map(section => {
+      {hasSections && pageInfo.sections.map(section => {
         <DynamicSection section={section} />
       })}
     </Layout>
