@@ -1,5 +1,7 @@
 import { Logo } from "./Logo"
 import { Tab } from "./Tab"
+import { GiHamburgerMenu } from 'react-icons/gi'
+import { IconContext } from "react-icons";
 
 const tabs = [
   {
@@ -16,11 +18,25 @@ const tabs = [
   }
 ]
 
+const HamburgerMenu = () => {
+  return (
+    <IconContext.Provider value={{ color: "blue", className: "global-class-name", size: '24px' }}>
+      <div className="flex items-center md:hidden">
+      <svg viewBox="0 0 100 80" width="24" height="24">
+          <rect width="100" height="16"></rect>
+          <rect y="30" width="100" height="16"></rect>
+          <rect y="60" width="100" height="16"></rect>
+        </svg>
+      </div>
+    </IconContext.Provider>
+  )
+}
+
 export const TopMenu = () => {
   return (
-    <div className='flex flex-row h-20 px-4 sticky top-0 z-50 bg-white'>
+    <div className='flex flex-row md:justify-start justify-between sticky top-0 h-20 z-50 px-4'>
       <Logo />
-      <div className='flex flex-row'>
+      <div className='hidden md:flex md:flex-row'>
         {tabs.map(tab => (
           <Tab
             key={tab.label}
@@ -29,6 +45,7 @@ export const TopMenu = () => {
           />
         ))}
       </div>
+      <HamburgerMenu />
     </div>
   )
 }

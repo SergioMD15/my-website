@@ -8,10 +8,9 @@ export const Logo = () => {
         <a>
           <Image
             alt='logo'
-            src='/doberman.png'
-            width={64}
-            height={64}
-            layout='fixed'
+            src='/logo.png'
+            width={100}
+            height={52}
           />
         </a>
       </Link>

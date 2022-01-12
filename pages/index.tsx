@@ -12,9 +12,7 @@ export type PageInfo = {
 const RECENT_PAGES_LIMIT = 10
 
 export const getStaticProps: GetStaticProps = async () => {
-  const mostRecentPages = await getRecentPages(RECENT_PAGES_LIMIT)
-
-  if (!mostRecentPages || !mostRecentPages.length) return { notFound: true }
+  const mostRecentPages = await getRecentPages(RECENT_PAGES_LIMIT) || []
 
   return {
     props: {

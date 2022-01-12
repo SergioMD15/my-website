@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { IconContext } from "react-icons";
+import { Text } from "../Text";
 
 type Props = {
   href: string,
@@ -8,7 +9,7 @@ type Props = {
 }
 
 const ArrowIcon = () => (
-  <IconContext.Provider value={{ color: "blue", className: "global-class-name" }}>
+  <IconContext.Provider value={{ color: "" }}>
     <div className="flex items-center pl-1">
       <AiOutlineArrowRight />
     </div>
@@ -19,9 +20,9 @@ export const ArrowLink = ({ href, children } : Props) => {
   return (
     <Link href={href} passHref>
       <a href={href} className="inline-flex">
-        <p className="text-blue">
+        <Text size="small" weight="medium" className="underline">
           {children}
-        </p>
+        </Text>
         <ArrowIcon />
       </a>
     </Link>
