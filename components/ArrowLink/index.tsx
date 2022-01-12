@@ -1,30 +1,23 @@
-import Link from 'next/link'
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { IconContext } from 'react-icons';
 import { Text } from '../Text';
 
 type Props = {
-  href: string,
   children: string
 }
 
 const ArrowIcon = () => (
-  <IconContext.Provider value={{ color: '' }}>
-    <div className='flex items-center pl-1'>
-      <AiOutlineArrowRight />
-    </div>
-  </IconContext.Provider>
+  <span className='flex items-center pl-1'>
+    <AiOutlineArrowRight />
+  </span>
 )
 
-export const ArrowLink = ({ href, children } : Props) => {
+export const ArrowLink = ({ children } : Props) => {
   return (
-    <Link href={href} passHref>
-      <a href={href} className='inline-flex'>
-        <Text size='small' weight='medium' className='underline'>
-          {children}
-        </Text>
-        <ArrowIcon />
-      </a>
-    </Link>
+    <span className='flex underline'>
+      <Text size='small' weight='medium'>
+        {children}
+      </Text>
+      <ArrowIcon />
+    </span>
   )
 }

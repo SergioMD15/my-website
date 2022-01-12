@@ -21,7 +21,7 @@ const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages
         <link rel='icon' href='/logo.png' />
       </Head>
       <Layout>
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center gap-y-2'>
           <WelcomeBanner hasMostRecentPages={hasAnyPage} />
           {hasAnyPage && <MostRecentPagesSection pages={pages} /> }
         </div>

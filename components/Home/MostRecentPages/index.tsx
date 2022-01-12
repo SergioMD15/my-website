@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { PageType } from '../../../lib/types'
 import { Button } from '../../Button'
 import { Text } from '../../Text'
@@ -9,8 +8,6 @@ type Props = {
 }
 
 export const MostRecentPagesSection = ({ pages } : Props) => {
-  const router = useRouter()
-
   return (
     <div className='flex flex-col items-center gap-y-8'>
       <Text color='text-gray-600' weight='semibold'>
@@ -18,12 +15,10 @@ export const MostRecentPagesSection = ({ pages } : Props) => {
       </Text>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 max-w-sm md:max-w-xl'>
         {pages.map((page, index) => (
-          <>
-            <Entry
-              key={page.title + index}
-              page={page}
-            />
-          </>
+          <Entry
+            key={page.title + index}
+            page={page}
+          />
         ))}
       </div>
       <Button type='secondary' href='/til'>
