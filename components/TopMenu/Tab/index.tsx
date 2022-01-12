@@ -1,4 +1,5 @@
-import Link from "next/link"
+import Link from 'next/link'
+import { Text } from '../../Text'
 
 type Props = {
   label: string,
@@ -7,10 +8,14 @@ type Props = {
 
 export const Tab = ({ label, href } : Props) => {
   return (
-    <Link href={href} passHref={true}>
-      <a className='flex items-center hover:text-sky-600 text-xl px-4'>
-        {label}
-      </a>
-    </Link>
+    <div className='flex items-center px-4'>
+      <Link href={href} passHref>
+        <a href={href}>
+          <Text size='normal' weight='medium' className='hover:text-sky-600'>
+            {label}
+          </Text>
+        </a>
+      </Link>
+    </div>
   )
 }

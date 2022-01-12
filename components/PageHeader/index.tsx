@@ -1,4 +1,4 @@
-import { Text } from "../Text"
+import { Text } from '../Text'
 
 type Props = {
   title: string
@@ -7,12 +7,12 @@ type Props = {
 
 export const PageHeader = ({ title, shortDescription } : Props) => {
   return (
-    <div className="flex flex-col gap-y-12">
-      <Text size="x-large" weight="semibold">
+    <div className='flex flex-col gap-y-12 py-4 md:py-12 border-b-2'>
+      <Text size='x-large' weight='semibold'>
         {title}
       </Text>
       {shortDescription &&
-        <Text size="large">
+        <Text size='medium'>
           {shortDescription}
         </Text>
       }

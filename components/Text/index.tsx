@@ -1,8 +1,10 @@
 import cn from 'classnames'
+import { TailwindTextColor } from '../../lib/types'
 
 const TextSize = {
   small: 'text-base',
-  medium: 'text-xl',
+  normal: 'text-xl',
+  medium: 'text-2xl',
   large: 'text-3xl',
   'x-large': 'text-5xl'
 }
@@ -13,20 +15,10 @@ const TextWeight = {
   semibold: 'font-semibold'
 }
 
-type TailwindBaseColor =
-  'gray' | 'red' | 'yellow' | 'green' |
-  'blue' | 'indigo' | 'purple' | 'pink'
-
-type TailwindVariant =
-  50 | 100 | 200 | 300 | 400 | 
-  500 | 600 | 700 | 800 | 900 
-
-type TailwindColor = `${TailwindBaseColor}-${TailwindVariant}`
-
 type Props = {
   size?: keyof typeof TextSize
   weight?: keyof typeof TextWeight
-  color?: TailwindColor
+  color?: TailwindTextColor
   className?: string
   children: string
 }
@@ -34,7 +26,7 @@ type Props = {
 export const Text = ({
   size = 'medium',
   weight = 'normal',
-  color = 'gray-200',
+  color = 'text-gray-800',
   className,
   children
 } : Props) => {

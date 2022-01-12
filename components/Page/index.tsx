@@ -1,7 +1,7 @@
-import { PageType } from "../../lib/types"
-import { DynamicSection } from "../DynamicSections"
-import { Layout } from "../Layout"
-import { PageHeader } from "../PageHeader"
+import { PageType } from '../../lib/types'
+import { DynamicSection } from '../DynamicSections'
+import { Layout } from '../Layout'
+import { PageHeader } from '../PageHeader'
 
 type Props = {
   pageInfo: PageType
@@ -10,7 +10,10 @@ type Props = {
 const Page = ({ pageInfo } : Props) => {
   return (
     <Layout>
-      <PageHeader title={pageInfo.title} shortDescription={pageInfo.shortDescription} />
+      <PageHeader
+        title={pageInfo.title}
+        shortDescription={pageInfo.shortDescription}
+      />
       {pageInfo.sections.map(section => {
         <DynamicSection section={section} />
       })}
