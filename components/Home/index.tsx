@@ -10,7 +10,9 @@ type Props = {
   mostRecentPages: Array<PageType>
 }
 
-const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages } : Props) => {
+const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages: pages } : Props) => {
+  const hasAnyPage = pages && pages.length > 0
+
   return (
     <div>
       <Head>
@@ -20,8 +22,8 @@ const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages
       </Head>
       <Layout>
         <div className='flex flex-col items-center'>
-          <WelcomeBanner hasMostRecentPages={mostRecentPages && mostRecentPages.length > 0} />
-          <MostRecentPagesSection pages={mostRecentPages} />
+          <WelcomeBanner hasMostRecentPages={hasAnyPage} />
+          {hasAnyPage && <MostRecentPagesSection pages={pages} /> }
         </div>
       </Layout>
     </div>

@@ -9,7 +9,7 @@ export const Layout = ({ children } : Props) => {
   return (
     <>
       <TopMenu/>
-      <div className='flex flex-col max-w-5xl mx-auto px-8 lg:px-0 pt-8'>
+      <div className='flex flex-col max-w-5xl mx-auto px-8 lg:px-0 py-8'>
         {children}
       </div>
     </>

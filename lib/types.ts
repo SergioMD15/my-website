@@ -11,13 +11,8 @@ export type PageType = {
   shortDescription?: string
 }
 
-type TailwindBaseColor =
-  'gray' | 'red' | 'yellow' | 'green' |
-  'blue' | 'indigo' | 'purple' | 'pink'
-
 type TailwindVariant =
   50 | 100 | 200 | 300 | 400 | 
   500 | 600 | 700 | 800 | 900 
 
-export type TailwindColor = `${TailwindBaseColor}-${TailwindVariant}`
-export type TailwindTextColor = `text-${TailwindColor}`
+export type TailwindTextColor = `text-gray-${TailwindVariant}`
