@@ -1,12 +1,13 @@
 import { InferGetStaticPropsType } from "next"
 import Head from "next/head"
-import { getStaticProps, PageInfo } from "../../pages"
+import { getStaticProps } from "../../pages"
 import { Layout } from "../Layout"
 import { WelcomeBanner } from "./WelcomeBanner"
 import { MostRecentPagesSection } from "./MostRecentPages"
+import { PageType } from "../../lib/types"
 
 type Props = {
-  mostRecentPages: Array<PageInfo>
+  mostRecentPages: Array<PageType>
 }
 
 const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages } : Props) => {
@@ -18,10 +19,12 @@ const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <WelcomeBanner />
-        {mostRecentPages && mostRecentPages.length > 0 &&
-          <MostRecentPagesSection pages={mostRecentPages} />
-        }
+        <div className="flex flex-col items-center">
+          <WelcomeBanner />
+          {mostRecentPages && mostRecentPages.length > 0 &&
+            <MostRecentPagesSection pages={mostRecentPages} />
+          }
+        </div>
       </Layout>
     </div>
   )

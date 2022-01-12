@@ -1,10 +1,10 @@
 import Link from "next/link"
-import { PageInfo } from "../../../../pages"
+import { PageType } from "../../../../lib/types"
 import { ArrowLink } from "../../../ArrowLink"
 import { Text } from "../../../Text"
 
 type Props = {
-  page: PageInfo
+  page: PageType
 }
 
 export const Entry = ({ page } : Props) => {
