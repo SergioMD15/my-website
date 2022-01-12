@@ -31,7 +31,7 @@ type SocialIconProps = {
 const SocialIcon = ({ href, icon } : SocialIconProps) => {
   return (
     <a href={href}>
-      <IconContext.Provider value={{ size: '32px', color: '#111827' }}>
+      <IconContext.Provider value={{ size: '36px', color: '#111827' }}>
         {React.createElement(icon, null)}
       </IconContext.Provider>
     </a>
