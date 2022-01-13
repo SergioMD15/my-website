@@ -1,14 +1,18 @@
-export type Section = {
-  metadata: any
-  sys: any
+// FIXME: Better type sections
+type Section = {
+  metadata: any,
+  sys: any,
   fields: any
 }
 
 export type PageType = {
+  typeName: string
   title: string
   slug: string
   sections: Array<Section>
   shortDescription?: string
+  createdAt: string
+  updatedAt: string
 }
 
 type TailwindVariant =

@@ -4,7 +4,7 @@ import { IconType } from 'react-icons'
 import { FaGithubSquare } from 'react-icons/fa'
 import { FaLinkedin } from 'react-icons/fa'
 import { GrMail } from 'react-icons/gr'
-import { IconContext } from 'react-icons/lib'
+import { IconContext } from 'react-icons'
 
 const socialLinks = [
   {

@@ -17,7 +17,7 @@ export const Entry = ({ page } : Props) => {
               {page.title}
             </Text>
             {page.shortDescription &&
-              <Text size='small' weight='normal'>
+              <Text size='small' weight='normal' className='line-clamp-2'>
                 {page.shortDescription}
               </Text>
             }

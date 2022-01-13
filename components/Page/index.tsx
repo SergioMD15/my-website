@@ -1,7 +1,7 @@
 import { PageType } from '../../lib/types'
-import { DynamicSection } from '../DynamicSections'
+import { DynamicSection } from './DynamicSections'
 import { Layout } from '../Layout'
-import { PageHeader } from '../PageHeader'
+import { PageHeader } from './PageHeader'
 
 type Props = {
   pageInfo: PageType

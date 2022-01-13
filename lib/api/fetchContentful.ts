@@ -1,26 +1,40 @@
 import { PageType } from "../types"
-import { createClient } from 'contentful'
-import { pageBySlugQuery, recentPagesQuery } from "./queries"
+import { createClient, Entry } from 'contentful'
+import { Query } from "./queries"
 
-type ResultType = PageType | undefined
+export type ResultType = Array<PageType>
 
 const client = createClient({
   space: `${process.env.CF_SPACE_ID}`,
   accessToken: `${process.env.CF_DELIVERY_ACCESS_TOKEN}`
 })
 
-export const fetchPageBySlug = async (slug: string) : Promise<ResultType> => {
-  const query = pageBySlugQuery(slug)
+const cleanEntry = async (
+  entry: Entry<PageType>
+) : Promise<PageType> => {
+  const { createdAt, updatedAt } = entry.sys
+  const typeName = await getSectionName(entry.sys.contentType.sys.id)
 
-  const res = await client.getEntries<PageType>(query)
-
-  return !!res.errors?.length ? undefined : res.items[0]?.fields
+  return {
+    ...entry.fields,
+    createdAt,
+    updatedAt,
+    typeName
+  }
 }
 
-export const getRecentPages = async (pageLimit: number) : Promise<Array<ResultType>> => {
-  const query = recentPagesQuery(pageLimit)
+const getSectionName = async (sectionId: string) : Promise<string> => {
+  const res = await client.getContentType(sectionId)
 
+  return res.name
+}
+
+export const fetchContentful = async (query: Query) : Promise<ResultType> => {
   const res = await client.getEntries<PageType>(query)
 
-  return !!res.errors?.length ? [] : res.items.map(i => i.fields)
+  if (res.errors) return []
+
+  return await Promise.all(
+    res.items.map(async (entry) => await cleanEntry(entry))
+  )
 }

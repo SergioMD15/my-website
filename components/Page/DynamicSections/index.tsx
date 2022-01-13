@@ -1,4 +1,4 @@
-import { Section } from '../../lib/types'
+import { Section } from '../../../lib/types'
 
 type Props = {
   section: Section
