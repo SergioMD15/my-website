@@ -23,3 +23,10 @@ export const recentPagesQuery = (pageLimit: number) : Query => (
     order: '-sys.createdAt',
   }
 )
+
+export const fetchAllRecentPages = () : Query => (
+  {
+    content_type: 'page',
+    order: '-sys.createdAt',
+  }
+)

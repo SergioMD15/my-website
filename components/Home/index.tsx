@@ -1,6 +1,3 @@
-import { InferGetStaticPropsType } from 'next'
-import Head from 'next/head'
-import { getStaticProps } from '../../pages'
 import { Layout } from '../Layout'
 import { WelcomeBanner } from './WelcomeBanner'
 import { MostRecentPagesSection } from './MostRecentPages'
@@ -10,16 +7,11 @@ type Props = {
   mostRecentPages: Array<SimplePage>
 }
 
-const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages: pages } : Props) => {
+const Home = ({ mostRecentPages: pages } : Props) => {
   const hasAnyPage = pages && pages.length > 0
 
   return (
     <>
-      <Head>
-        <title>Sergio Mosquera | Full stack developer</title>
-        <meta name='description' content="Sergio Mosquera's personal website" />
-        <link rel='icon' href='/logo.png' />
-      </Head>
       <Layout>
         <div className='flex flex-col items-center gap-y-2'>
           <WelcomeBanner hasMostRecentPages={hasAnyPage} />

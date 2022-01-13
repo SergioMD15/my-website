@@ -11,7 +11,7 @@ const tabs = [
   },
   {
     label: 'TIL',
-    href: '/'
+    href: '/til'
   }
 ]
 
