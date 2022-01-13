@@ -33,7 +33,7 @@ export const allRecentPagesQuery = () : Query => (
 
 export const allExperienceQuery = () : Query => (
   {
-    content_type: 'experience',
+    content_type: 'company',
     order: '-sys.createdAt',
   }
 )

@@ -51,6 +51,8 @@ export const cleanPageEntry = async (
 export const cleanExperienceEntry = async (
   entry: Entry<ContentfulEntry>
 ) : Promise<CompanyExperience> => {
+  console.log(entry)
+
   return {
     companyName: '',
     experience: []

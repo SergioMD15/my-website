@@ -5,10 +5,10 @@ import { Logo } from './Logo'
 import { Tab } from './Tab'
 
 const tabs = [
-  // {
-  //   label: 'About me',
-  //   href: '/about'
-  // },
+  {
+    label: 'About me',
+    href: '/about'
+  },
   {
     label: 'TIL',
     href: '/til'

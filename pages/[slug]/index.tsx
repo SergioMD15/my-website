@@ -11,7 +11,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     const contentfulQuery = pageBySlugQuery(slug)
     const pageInfo = await fetchPages(contentfulQuery)
 
-    if (!pageInfo) {
+    if (!pageInfo || pageInfo.length === 0) {
       return {
         notFound: true
       }

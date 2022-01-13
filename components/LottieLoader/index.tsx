@@ -1,13 +1,25 @@
+import cn from 'classnames';
 import type { LottiePlayer } from 'lottie-web';
 import { useEffect, useRef, useState } from 'react';
 
-type AvailableAnimations = 'wave'
+type AvailableAnimations = 'wave' | 'error'
 
 type Props = {
   animationName: AvailableAnimations
+  loop?: boolean
+  autoplay?: boolean
 }
 
-export const LottieLoader = ({ animationName } : Props) => {
+const configWidth = {
+  wave: 'w-36',
+  error: 'w-auto md:w-7/12'
+}
+
+export const LottieLoader = ({
+  animationName,
+  loop = true,
+  autoplay = true
+} : Props) => {
   const ref = useRef(null);
   const [lottie, setLottie] = useState<LottiePlayer | null>(null);
 
@@ -20,8 +32,8 @@ export const LottieLoader = ({ animationName } : Props) => {
       const animation = lottie.loadAnimation({
         container: ref.current,
         renderer: 'svg',
-        loop: true,
-        autoplay: true,
+        loop: loop,
+        autoplay: autoplay,
         path: `/lotties/${animationName}.json`,
         rendererSettings: {
           preserveAspectRatio: 'none'
@@ -30,9 +42,12 @@ export const LottieLoader = ({ animationName } : Props) => {
 
       return () => animation.destroy();
     }
-  }, [lottie, animationName]);
+  }, [lottie, animationName, autoplay, loop]);
 
   return (
-    <div ref={ref} className='w-36 items-center'/>
+    <div ref={ref} className={cn(
+      'items-center',
+      configWidth[animationName]
+    )}/>
   )
 }
