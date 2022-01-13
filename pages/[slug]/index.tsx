@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
-import Page from '../../components/Page';
-import { fetchContentful } from '../../lib/api/fetchContentful';
-import { pageBySlugQuery } from '../../lib/api/queries';
+import Page from 'components/Page';
+import { fetchContentful } from 'lib/api/fetchContentful';
+import { pageBySlugQuery } from 'lib/api/queries';
 
 export const getServerSideProps: GetServerSideProps = async ({
   query

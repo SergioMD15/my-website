@@ -1,6 +1,6 @@
-import { SimplePage } from '../../../lib/types'
-import { Button } from '../../Button'
-import { Text } from '../../Text'
+import { SimplePage } from 'lib/types'
+import { Button } from 'components/Button'
+import { Text } from 'components/Text'
 import { Entry } from './Entry'
 
 type Props = {
@@ -13,7 +13,7 @@ export const MostRecentPagesSection = ({ pages } : Props) => {
       <Text color='text-gray-600' weight='semibold'>
         Below are my most recent learnings 👇
       </Text>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 max-w-sm md:max-w-xl'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-8 max-w-md md:max-w-2xl'>
         {pages.map((page, index) => (
           <Entry
             key={page.title + index}

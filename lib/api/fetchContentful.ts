@@ -1,4 +1,4 @@
-import { MarkdownSectionType, PageType, SectionType, SimplePage, TextSectionType, ValidSectionType } from "../types"
+import { MarkdownSectionType, PageType, SectionType, SimplePage, TextSectionType } from "lib/types"
 import { createClient, Entry, Field, Metadata, Sys } from 'contentful'
 import { Query } from "./queries"
 

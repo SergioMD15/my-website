@@ -1,7 +1,7 @@
 import cn from 'classnames'
-import { LottieLoader } from '../../LottieLoader'
-import { Text } from '../../Text'
-import { SocialIcons } from '../SocialIcons'
+import { LottieLoader } from 'components/LottieLoader'
+import { Text } from 'components/Text'
+import { SocialIcons } from 'components/Home/SocialIcons'
 
 type Props = {
   hasMostRecentPages: boolean

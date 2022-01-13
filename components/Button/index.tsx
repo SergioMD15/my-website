@@ -5,10 +5,12 @@ type ButtonType = 'primary' | 'secondary'
 
 const ButtonTypeStyles = {
   primary: {
+    hover: 'hover:bg-amber-300',
     backgroundColor: 'bg-amber-200',
     borderColor: 'border-yellow-400',
   },
   secondary: {
+    hover: 'hover:bg-slate-300',
     backgroundColor: 'bg-slate-100',
     borderColor: 'border-slate-700'
   }
@@ -25,7 +27,7 @@ export const Button = ({
   href,
   children
 } : Props) => {
-  const { backgroundColor, borderColor } = ButtonTypeStyles[type]
+  const typeStyles = Object.values(ButtonTypeStyles[type])
 
   return (
     <Link href={href} passHref>
@@ -34,8 +36,7 @@ export const Button = ({
           className={cn(
             'py-2 px-8 rounded-full border-2',
             'font-bold',
-            backgroundColor,
-            borderColor
+            ...typeStyles
           )}
         >
           {children}

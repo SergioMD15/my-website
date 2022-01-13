@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { ReactNode } from 'react'
-import { TopMenu } from '../TopMenu'
+import { TopMenu } from 'components/TopMenu'
 
 type Props = {
   children: ReactNode

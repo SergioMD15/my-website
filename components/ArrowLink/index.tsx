@@ -1,5 +1,5 @@
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { Text } from '../Text';
+import { Text } from 'components/Text';
 
 type Props = {
   children: string

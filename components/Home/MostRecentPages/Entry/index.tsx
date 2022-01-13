@@ -6,22 +6,24 @@ import { Text } from 'components/Text'
 
 type Props = {
   page: SimplePage
-  fullWidth?: boolean
+  showFullWidth?: boolean
   showFullDescription?: boolean
+  showPublishDate?: boolean
 }
 
 export const Entry = ({
   page,
-  fullWidth = false,
-  showFullDescription = false
+  showFullWidth = false,
+  showFullDescription = false,
+  showPublishDate = false
 } : Props) => {
   return (
     <Link href={page.slug} as={`/${page.slug}`} passHref>
       <a>
         <div className='flex flex-col hover:bg-gray-100 border rounded-lg border-gray-200 p-6'>
           <div className={cn(
-            'flex flex-col gap-2 pb-4',
-            !fullWidth && 'md:max-w-xs'
+            'flex flex-col gap-2 pb-6',
+            !showFullWidth && 'md:max-w-xs'
           )}>
             <Text size='medium' weight='semibold'>
               {page.title}
@@ -35,6 +37,11 @@ export const Entry = ({
                 )}
               >
                 {page.shortDescription}
+              </Text>
+            }
+            {showPublishDate &&
+              <Text size='small' color='text-gray-500'>
+                Published on: {new Date(page.createdAt).toLocaleDateString()}
               </Text>
             }
           </div>

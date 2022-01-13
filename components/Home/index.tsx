@@ -1,7 +1,7 @@
-import { Layout } from '../Layout'
+import { Layout } from 'components/Layout'
 import { WelcomeBanner } from './WelcomeBanner'
 import { MostRecentPagesSection } from './MostRecentPages'
-import { SimplePage } from '../../lib/types'
+import { SimplePage } from 'lib/types'
 
 type Props = {
   mostRecentPages: Array<SimplePage>

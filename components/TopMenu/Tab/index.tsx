@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Text } from '../../Text'
+import { Text } from 'components/Text'
 
 type Props = {
   label: string,

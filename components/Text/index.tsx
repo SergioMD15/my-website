@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { ReactNode } from 'react'
-import { TailwindTextColor } from '../../lib/types'
+import { TailwindTextColor } from 'lib/types'
 
 const TextSize = {
   small: 'text-base',

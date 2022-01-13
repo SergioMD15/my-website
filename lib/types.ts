@@ -21,11 +21,11 @@ export type SimplePage = {
   title: string
   slug: string
   shortDescription?: string
+  createdAt: string
 } & CommonSectionProps
 
 export type PageType = {
   sections: Array<SectionType>
-  createdAt: string
   updatedAt: string
 } & SimplePage
 
