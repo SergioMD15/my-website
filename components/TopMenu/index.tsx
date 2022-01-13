@@ -1,6 +1,5 @@
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
-import { HamburgerMenu } from './HamburgerMenu'
 import { Logo } from './Logo'
 import { Tab } from './Tab'
 
