@@ -5,10 +5,10 @@ import { Logo } from './Logo'
 import { Tab } from './Tab'
 
 const tabs = [
-  {
-    label: 'About me',
-    href: '/about'
-  },
+  // {
+  //   label: 'About me',
+  //   href: '/about'
+  // },
   {
     label: 'TIL',
     href: '/til'
@@ -38,7 +38,7 @@ export const TopMenu = () => {
       isScrolled && 'border-b-2'
     )}>
       <Logo />
-      <div className='hidden md:flex md:flex-row'>
+      <div className='flex flex-row md:justify-start justify-end'>
         {tabs.map(tab => (
           <Tab
             key={tab.label}
@@ -47,7 +47,6 @@ export const TopMenu = () => {
           />
         ))}
       </div>
-      <HamburgerMenu />
     </div>
   )
 }

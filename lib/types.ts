@@ -1,12 +1,15 @@
 export type ValidSectionType = 'content' | 'markdownSection' | 'page'
 
+export type RichText = any
+
 type CommonSectionProps = {
   typename?: ValidSectionType
 }
 
 export type TextSectionType = {
   sectionId: string
-  richText: any
+  // FIXME: Improve this
+  richText: RichText
 } & CommonSectionProps
 
 export type MarkdownSectionType = {
@@ -29,10 +32,14 @@ export type PageType = {
   updatedAt: string
 } & SimplePage
 
-type TailwindColor = 'red' | 'gray'
+type Experience = {
+  startDate: string
+  endDate?: string
+  position: string
+  description: RichText
+}
 
-type TailwindVariant =
-  50 | 100 | 200 | 300 | 400 | 
-  500 | 600 | 700 | 800 | 900 
-
-export type TailwindTextColor = `text-${TailwindColor}-${TailwindVariant}`
+export type CompanyExperience = {
+  companyName: string
+  experience: Array<Experience>
+}

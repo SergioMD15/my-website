@@ -13,7 +13,7 @@ export const PageHeader = ({
   centeredText = false
 } : Props) => {
   return (
-    <div className='flex flex-col gap-y-8 pb-8 md:py-12 mb-8 border-b-2'>
+    <div className='flex flex-col gap-y-8 py-8 md:py-12 mb-8 border-b-2'>
       <Text
         size='x-large'
         weight='semibold'

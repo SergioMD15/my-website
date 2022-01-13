@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const LottieLoader = ({ animationName } : Props) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
   const [lottie, setLottie] = useState<LottiePlayer | null>(null);
 
   useEffect(() => {

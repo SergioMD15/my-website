@@ -14,7 +14,7 @@ export const WelcomeBanner = ({ hasMostRecentPages } : Props) => {
       hasMostRecentPages ? 'pb-12' : 'py-16'
     )}>
       <div className='flex flex-col gap-y-8'>
-        <div className='flex flex-row justify-items-start items-end'>
+        <div className='flex flex-row self-center items-end'>
           <Text size='x-large' weight='semibold' className='items-start'>
             Hey!
           </Text>

@@ -1,6 +1,21 @@
 import cn from 'classnames'
 import { ReactNode } from 'react'
-import { TailwindTextColor } from 'lib/types'
+
+type TailwindColor = 'red' | 'gray'
+
+type TailwindVariant =
+  50 | 100 | 200 | 300 | 400 | 
+  500 | 600 | 700 | 800 | 900 
+
+export type TailwindTextColor = `text-${TailwindColor}-${TailwindVariant}`
+
+type Props = {
+  size?: keyof typeof TextSize
+  weight?: keyof typeof TextWeight
+  color?: TailwindTextColor
+  className?: string
+  children: ReactNode
+}
 
 const TextSize = {
   small: 'text-base',
@@ -14,14 +29,6 @@ const TextWeight = {
   normal: 'font-normal',
   medium: 'font-medium',
   semibold: 'font-semibold'
-}
-
-type Props = {
-  size?: keyof typeof TextSize
-  weight?: keyof typeof TextWeight
-  color?: TailwindTextColor
-  className?: string
-  children: ReactNode
 }
 
 export const Text = ({

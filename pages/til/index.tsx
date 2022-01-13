@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
 import TIL from 'components/TIL';
-import { fetchContentful } from 'lib/api/fetchContentful';
-import { fetchAllRecentPages } from 'lib/api/queries';
+import { fetchPages } from 'lib/api/contentfulApi';
+import { allRecentPagesQuery } from 'lib/api/queries';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const contentfulQuery = fetchAllRecentPages()
-  const allPages = await fetchContentful(contentfulQuery)
+  const contentfulQuery = allRecentPagesQuery()
+  const allPages = await fetchPages(contentfulQuery)
 
   if (!allPages || allPages.length === 0) {
     return {

@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const Logo = () => {
   return (
     <div className='flex items-center ml-2 mr-4 cursor-pointer'>
-      <Link href='/' passHref={true}>
+      <Link href='/' passHref>
         <a>
           <Image
             alt='logo'

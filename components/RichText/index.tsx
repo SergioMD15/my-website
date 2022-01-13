@@ -3,9 +3,10 @@ import { documentToReactComponents, Options } from "@contentful/rich-text-react-
 import { Text } from 'components/Text';
 import cn from 'classnames'
 import React, { ReactNode } from 'react';
+import { RichText as RichTextType } from 'lib/types';
 
 type Props = {
-  children: any
+  children: RichTextType
 }
 
 export const RichText = ({ children } : Props) => {
