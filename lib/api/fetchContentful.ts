@@ -1,29 +1,62 @@
-import { PageType, SimplePage } from "../types"
-import { createClient, Entry } from 'contentful'
+import { MarkdownSectionType, PageType, SectionType, SimplePage, TextSectionType, ValidSectionType } from "../types"
+import { createClient, Entry, Field, Metadata, Sys } from 'contentful'
 import { Query } from "./queries"
 
 export type ResultType = Array<PageType | SimplePage>
+
+type ContentfulSection = {
+  fields: Array<Field> | SectionType
+  metadata: Metadata
+  sys: Sys
+}
+
+type ContentfulEntry = {
+  title: string
+  slug: string
+  shortDescription: string
+  sections: Array<ContentfulSection>
+} & ContentfulSection
 
 const client = createClient({
   space: `${process.env.CF_SPACE_ID}`,
   accessToken: `${process.env.CF_DELIVERY_ACCESS_TOKEN}`
 })
 
+const cleanSections = (sections: Array<ContentfulSection>) => {
+  return sections.map(section => {
+    switch (section.sys.contentType.sys.id) {
+      case 'markdownSection':
+        return {
+          typename: section.sys.contentType.sys.id,
+          ...section.fields as MarkdownSectionType
+        }
+      case 'content':
+        return {
+          typename: section.sys.contentType.sys.id,
+          ...section.fields as TextSectionType
+        }
+      default:
+        return null
+    }
+  })
+}
+
 const cleanEntry = async (
-  entry: Entry<PageType>
+  entry: Entry<ContentfulEntry>
 ) : Promise<PageType> => {
-  const { createdAt, updatedAt, contentType } = entry.sys
+  const { createdAt, updatedAt } = entry.sys
+  const { sections, ...entryFields } = entry.fields
 
   return {
-    ...entry.fields,
+    ...entryFields,
+    sections: cleanSections(sections) as Array<SectionType>,
     createdAt,
-    updatedAt,
-    typename: contentType.sys.id
+    updatedAt
   }
 }
 
 export const fetchContentful = async (query: Query) : Promise<ResultType> => {
-  const res = await client.getEntries<PageType>(query)
+  const res = await client.getEntries<ContentfulEntry>(query)
 
   if (res.errors) return []
 

@@ -14,10 +14,10 @@ const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages
   const hasAnyPage = pages && pages.length > 0
 
   return (
-    <div>
+    <>
       <Head>
-        <title>Create Next App</title>
-        <meta name='description' content='Sergio Mosquera | Full stack developer' />
+        <title>Sergio Mosquera | Full stack developer</title>
+        <meta name='description' content="Sergio Mosquera's personal website" />
         <link rel='icon' href='/logo.png' />
       </Head>
       <Layout>
@@ -26,7 +26,7 @@ const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages
           {hasAnyPage && <MostRecentPagesSection pages={pages} /> }
         </div>
       </Layout>
-    </div>
+    </>
   )
 }
 

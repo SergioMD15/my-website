@@ -1,9 +1,9 @@
 import { RichTextData } from "contentful"
 
-type ValidSectionType = 'content' | 'markdownSection' | 'page'
+export type ValidSectionType = 'content' | 'markdownSection' | 'page'
 
 type CommonSectionProps = {
-  typename: ValidSectionType
+  typename?: ValidSectionType
 }
 
 export type TextSectionType = {
