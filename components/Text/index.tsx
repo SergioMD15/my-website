@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { ReactNode } from 'react'
 import { TailwindTextColor } from '../../lib/types'
 
 const TextSize = {
@@ -20,7 +21,7 @@ type Props = {
   weight?: keyof typeof TextWeight
   color?: TailwindTextColor
   className?: string
-  children: string
+  children: ReactNode
 }
 
 export const Text = ({

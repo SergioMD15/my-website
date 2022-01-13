@@ -1,4 +1,4 @@
-import { MarkdownSectionType } from "../../../../lib/types"
+import { MarkdownSectionType } from "lib/types"
 
 export const MarkdownSection = ({ sectionId, language, codeSnippet } : MarkdownSectionType) => {
   return (

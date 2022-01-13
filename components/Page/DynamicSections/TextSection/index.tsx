@@ -1,9 +1,12 @@
-import { TextSectionType } from "../../../../lib/types"
+import { RichText } from 'components/RichText';
+import { TextSectionType } from 'lib/types';
 
 export const TextSection = ({ sectionId, richText } : TextSectionType) => {
   return (
     <div id={sectionId}>
-      sssiiiii
+      <RichText>
+        {richText}
+      </RichText>
     </div>
   )
 }

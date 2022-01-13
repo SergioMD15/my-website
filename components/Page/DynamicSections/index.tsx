@@ -1,4 +1,4 @@
-import { MarkdownSectionType, SectionType, TextSectionType } from "../../../lib/types"
+import { MarkdownSectionType, SectionType, TextSectionType } from "lib/types"
 import { MarkdownSection } from "./MarkdownSection"
 import { TextSection } from "./TextSection"
 

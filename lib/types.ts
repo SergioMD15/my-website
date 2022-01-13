@@ -1,5 +1,3 @@
-import { RichTextData } from "contentful"
-
 export type ValidSectionType = 'content' | 'markdownSection' | 'page'
 
 type CommonSectionProps = {
@@ -8,7 +6,7 @@ type CommonSectionProps = {
 
 export type TextSectionType = {
   sectionId: string
-  richText: RichTextData
+  richText: any
 } & CommonSectionProps
 
 export type MarkdownSectionType = {
@@ -31,8 +29,10 @@ export type PageType = {
   updatedAt: string
 } & SimplePage
 
+type TailwindColor = 'red' | 'gray'
+
 type TailwindVariant =
   50 | 100 | 200 | 300 | 400 | 
   500 | 600 | 700 | 800 | 900 
 
-export type TailwindTextColor = `text-gray-${TailwindVariant}`
+export type TailwindTextColor = `text-${TailwindColor}-${TailwindVariant}`
