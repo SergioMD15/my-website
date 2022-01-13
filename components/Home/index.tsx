@@ -4,10 +4,10 @@ import { getStaticProps } from '../../pages'
 import { Layout } from '../Layout'
 import { WelcomeBanner } from './WelcomeBanner'
 import { MostRecentPagesSection } from './MostRecentPages'
-import { PageType } from '../../lib/types'
+import { SimplePage } from '../../lib/types'
 
 type Props = {
-  mostRecentPages: Array<PageType>
+  mostRecentPages: Array<SimplePage>
 }
 
 const Home : InferGetStaticPropsType<typeof getStaticProps> = ({ mostRecentPages: pages } : Props) => {

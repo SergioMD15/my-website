@@ -1,8 +1,8 @@
-import { PageType } from "../types"
+import { PageType, SimplePage } from "../types"
 import { createClient, Entry } from 'contentful'
 import { Query } from "./queries"
 
-export type ResultType = Array<PageType>
+export type ResultType = Array<PageType | SimplePage>
 
 const client = createClient({
   space: `${process.env.CF_SPACE_ID}`,
@@ -12,21 +12,14 @@ const client = createClient({
 const cleanEntry = async (
   entry: Entry<PageType>
 ) : Promise<PageType> => {
-  const { createdAt, updatedAt } = entry.sys
-  const typeName = await getSectionName(entry.sys.contentType.sys.id)
+  const { createdAt, updatedAt, contentType } = entry.sys
 
   return {
     ...entry.fields,
     createdAt,
     updatedAt,
-    typeName
+    typename: contentType.sys.id
   }
-}
-
-const getSectionName = async (sectionId: string) : Promise<string> => {
-  const res = await client.getContentType(sectionId)
-
-  return res.name
 }
 
 export const fetchContentful = async (query: Query) : Promise<ResultType> => {

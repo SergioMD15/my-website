@@ -1,10 +1,10 @@
-import { PageType } from '../../../lib/types'
+import { SimplePage } from '../../../lib/types'
 import { Button } from '../../Button'
 import { Text } from '../../Text'
 import { Entry } from './Entry'
 
 type Props = {
-  pages: Array<PageType>
+  pages: Array<SimplePage>
 }
 
 export const MostRecentPagesSection = ({ pages } : Props) => {

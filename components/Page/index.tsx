@@ -16,9 +16,9 @@ const Page = ({ pageInfo } : Props) => {
         title={pageInfo.title}
         shortDescription={pageInfo.shortDescription}
       />
-      {hasSections && pageInfo.sections.map(section => {
-        <DynamicSection section={section} />
-      })}
+      {hasSections && pageInfo.sections.map((section, index) => (
+        <DynamicSection key={`${section.sectionId}-${index}`} section={section} />
+      ))}
     </Layout>
   )
 }
