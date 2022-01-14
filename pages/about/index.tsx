@@ -1,13 +1,13 @@
 import { GetStaticProps } from 'next';
 import About from 'components/About';
-import { fetchExperience } from 'lib/api/contentfulApi';
-import { allExperienceQuery } from 'lib/api/queries';
+import { fetchCompanyExperience } from 'lib/api/contentfulApi';
+import { allCompanyExperienceQuery } from 'lib/api/queries';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const contentfulQuery = allExperienceQuery()
-  const experience = await fetchExperience(contentfulQuery)
+  const contentfulQuery = allCompanyExperienceQuery()
+  const companies = await fetchCompanyExperience(contentfulQuery)
 
-  if (!experience || experience.length === 0) {
+  if (!companies || companies.length === 0) {
     return {
       notFound: true
     }
@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      experience
+      companies
     }
   }
 }

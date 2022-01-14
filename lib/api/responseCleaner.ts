@@ -1,17 +1,23 @@
 import { Entry, Field, Metadata, Sys } from "contentful"
-import { CompanyExperience, MarkdownSectionType, PageType, SectionType, TextSectionType } from "lib/types"
+import { CompanyExperience, ExperienceType, MarkdownSectionType, PageType, SectionType, TextSectionType } from "lib/types"
 
 type ContentfulSection = {
-  fields: Array<Field> | SectionType
+  fields: Array<Field> | SectionType | ExperienceType
   metadata: Metadata
   sys: Sys
 }
 
-export type ContentfulEntry = {
+export type ContentfulPageEntry = {
   title: string
   slug: string
   shortDescription: string
   sections: Array<ContentfulSection>
+} & ContentfulSection
+
+export type ContentfulCompanyEntry = {
+  companyName: string
+  url: string
+  experience: Array<ContentfulSection>
 } & ContentfulSection
 
 
@@ -35,7 +41,7 @@ const cleanSections = (sections: Array<ContentfulSection>) => {
 }
 
 export const cleanPageEntry = async (
-  entry: Entry<ContentfulEntry>
+  entry: Entry<ContentfulPageEntry>
 ) : Promise<PageType> => {
   const { createdAt, updatedAt } = entry.sys
   const { sections, ...entryFields } = entry.fields
@@ -48,13 +54,13 @@ export const cleanPageEntry = async (
   }
 }
 
-export const cleanExperienceEntry = async (
-  entry: Entry<ContentfulEntry>
+export const cleanCompanyEntry = async (
+  entry: Entry<ContentfulCompanyEntry>
 ) : Promise<CompanyExperience> => {
-  console.log(entry)
+  const { experience, ...otherFields } = entry.fields
 
   return {
-    companyName: '',
-    experience: []
+    ...otherFields,
+    experience: experience.map(exp => exp.fields) as Array<ExperienceType>
   }
 }

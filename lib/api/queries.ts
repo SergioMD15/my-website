@@ -31,9 +31,9 @@ export const allRecentPagesQuery = () : Query => (
   }
 )
 
-export const allExperienceQuery = () : Query => (
+export const allCompanyExperienceQuery = () : Query => (
   {
     content_type: 'company',
-    order: '-sys.createdAt',
+    order: 'fields.startDate',
   }
 )

@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { LottieLoader } from 'components/LottieLoader'
-import { Text } from 'components/Text'
+import Text from 'components/Text'
 import { SocialIcons } from 'components/Home/SocialIcons'
 
 type Props = {
@@ -15,9 +15,9 @@ export const WelcomeBanner = ({ hasMostRecentPages } : Props) => {
     )}>
       <div className='flex flex-col gap-y-8'>
         <div className='flex flex-row self-center items-end'>
-          <Text size='x-large' weight='semibold' className='items-start'>
+          <Text.Header1 className='items-start'>
             Hey!
-          </Text>
+          </Text.Header1>
           <LottieLoader animationName='wave' />
         </div>
         <Text size='medium' color='text-gray-700'>

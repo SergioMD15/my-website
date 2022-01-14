@@ -1,6 +1,6 @@
 import { SimplePage } from 'lib/types'
 import { Button } from 'components/Button'
-import { Text } from 'components/Text'
+import Text from 'components/Text'
 import { Entry } from './Entry'
 
 type Props = {

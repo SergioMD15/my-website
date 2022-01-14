@@ -18,7 +18,8 @@ type Props = {
 }
 
 const TextSize = {
-  small: 'text-base',
+  'x-small': 'text-base',
+  small: 'text-lg',
   normal: 'text-xl',
   medium: 'text-2xl',
   large: 'text-3xl',
@@ -31,7 +32,7 @@ const TextWeight = {
   semibold: 'font-semibold'
 }
 
-export const Text = ({
+const Text = ({
   size = 'medium',
   weight = 'normal',
   color = 'text-gray-800',
@@ -49,3 +50,46 @@ export const Text = ({
     </p>
   )
 }
+
+const Header1 = ({
+  size = 'x-large',
+  weight = 'semibold',
+  color = 'text-gray-800',
+  className,
+  children
+} : Props) => {
+  return (
+    <h1 className={cn(
+      TextSize[size],
+      TextWeight[weight],
+      color,
+      className
+    )}>
+      {children}
+    </h1>
+  )
+}
+
+const Header2 = ({
+  size = 'large',
+  weight = 'semibold',
+  color = 'text-gray-800',
+  className,
+  children
+} : Props) => {
+  return (
+    <h2 className={cn(
+      TextSize[size],
+      TextWeight[weight],
+      color,
+      className
+    )}>
+      {children}
+    </h2>
+  )
+}
+
+Text.Header1 = Header1
+Text.Header2 = Header2
+
+export default Text

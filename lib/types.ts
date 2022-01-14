@@ -32,7 +32,7 @@ export type PageType = {
   updatedAt: string
 } & SimplePage
 
-type Experience = {
+export type ExperienceType = {
   startDate: string
   endDate?: string
   position: string
@@ -41,5 +41,6 @@ type Experience = {
 
 export type CompanyExperience = {
   companyName: string
-  experience: Array<Experience>
+  url: string
+  experience: Array<ExperienceType>
 }

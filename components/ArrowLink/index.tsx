@@ -1,5 +1,5 @@
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { Text } from 'components/Text';
+import Text from 'components/Text';
 
 type Props = {
   children: string
@@ -14,7 +14,7 @@ const ArrowIcon = () => (
 export const ArrowLink = ({ children } : Props) => {
   return (
     <span className='flex underline'>
-      <Text size='small' weight='medium'>
+      <Text size='x-small' weight='medium'>
         {children}
       </Text>
       <ArrowIcon />

@@ -1,4 +1,4 @@
-import { Text } from 'components/Text'
+import Text from 'components/Text'
 import cn from 'classnames'
 
 type Props = {
@@ -14,15 +14,13 @@ export const PageHeader = ({
 } : Props) => {
   return (
     <div className='flex flex-col gap-y-8 py-8 md:py-12 mb-8 border-b-2'>
-      <Text
-        size='x-large'
-        weight='semibold'
+      <Text.Header1
         className={cn(
           centeredText && 'text-center'
         )}
       >
         {title}
-      </Text>
+      </Text.Header1>
       {shortDescription &&
         <Text size='medium' className={cn(centeredText && 'text-center')}>
           {shortDescription}

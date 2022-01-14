@@ -1,7 +1,7 @@
 import { PageType, SimplePage, CompanyExperience } from "lib/types"
 import { createClient } from 'contentful'
 import { Query } from "./queries"
-import { cleanExperienceEntry, cleanPageEntry, ContentfulEntry } from "./responseCleaner"
+import { cleanCompanyEntry, cleanPageEntry, ContentfulPageEntry, ContentfulCompanyEntry } from "./responseCleaner"
 
 export type ResultType = Array<PageType | SimplePage | CompanyExperience>
 
@@ -11,7 +11,7 @@ const client = createClient({
 })
 
 export const fetchPages = async (query: Query) : Promise<ResultType> => {
-  const res = await client.getEntries<ContentfulEntry>(query)
+  const res = await client.getEntries<ContentfulPageEntry>(query)
 
   if (res.errors) return []
 
@@ -20,12 +20,12 @@ export const fetchPages = async (query: Query) : Promise<ResultType> => {
   )
 }
 
-export const fetchExperience = async (query: Query) : Promise<ResultType> => {
-  const res = await client.getEntries<ContentfulEntry>(query)
+export const fetchCompanyExperience = async (query: Query) : Promise<ResultType> => {
+  const res = await client.getEntries<ContentfulCompanyEntry>(query)
 
   if (res.errors) return []
 
   return await Promise.all(
-    res.items.map(async (entry) => await cleanExperienceEntry(entry))
+    res.items.map(async (entry) => await cleanCompanyEntry(entry))
   )
 }

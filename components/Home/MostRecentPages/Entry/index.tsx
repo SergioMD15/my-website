@@ -2,7 +2,7 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { SimplePage } from 'lib/types'
 import { ArrowLink } from 'components/ArrowLink'
-import { Text } from 'components/Text'
+import Text from 'components/Text'
 
 type Props = {
   page: SimplePage
@@ -30,7 +30,7 @@ export const Entry = ({
             </Text>
             {page.shortDescription &&
               <Text
-                size='small'
+                size='x-small'
                 weight='normal'
                 className={cn(
                   !showFullDescription && 'line-clamp-2'
@@ -40,7 +40,7 @@ export const Entry = ({
               </Text>
             }
             {showPublishDate &&
-              <Text size='small' color='text-gray-500'>
+              <Text size='x-small' color='text-gray-500'>
                 Published on: {new Date(page.createdAt).toLocaleDateString()}
               </Text>
             }
