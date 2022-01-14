@@ -11,7 +11,7 @@ type Props = {
 }
 
 const configWidth = {
-  wave: 'w-36',
+  wave: 'h-[100px] w-[144px]',
   error: 'w-auto md:w-7/12'
 }
 
