@@ -1,9 +1,9 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import About from 'components/About';
 import { fetchCompanyExperience } from 'lib/api/contentfulApi';
 import { allCompanyExperienceQuery } from 'lib/api/queries';
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const contentfulQuery = allCompanyExperienceQuery()
   const companies = await fetchCompanyExperience(contentfulQuery)
 

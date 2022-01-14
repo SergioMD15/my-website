@@ -20,7 +20,7 @@ const companyBackground = {
 
 const formatDateExperience = (company: CompanyExperience) => {
   const startDate = company.experience[0].startDate
-  const endDate = company.experience.at(-1)?.endDate
+  const endDate = company.experience?.at(-1)?.endDate
 
   const startYear = new Date(Date.parse(startDate)).getFullYear()
   const endYear = endDate ? new Date(Date.parse(endDate)).getFullYear() : 'In progress'
