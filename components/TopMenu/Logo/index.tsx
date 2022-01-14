@@ -7,6 +7,7 @@ export const Logo = () => {
       <Link href='/' passHref>
         <a>
           <Image
+            priority
             alt='logo'
             src='/logo.png'
             width={100}

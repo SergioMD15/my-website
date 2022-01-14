@@ -24,7 +24,7 @@ export const LottieLoader = ({
   const [lottie, setLottie] = useState<LottiePlayer | null>(null);
 
   useEffect(() => {
-    import('lottie-web').then((Lottie) => setLottie(Lottie.default));
+    import('lottie-web').then(Lottie => setLottie(Lottie.default))
   }, []);
 
   useEffect(() => {
@@ -34,15 +34,12 @@ export const LottieLoader = ({
         renderer: 'svg',
         loop: loop,
         autoplay: autoplay,
-        path: `/lotties/${animationName}.json`,
-        rendererSettings: {
-          preserveAspectRatio: 'none'
-        }
+        path: `/lotties/${animationName}.json`
       });
 
       return () => animation.destroy();
     }
-  }, [lottie, animationName, autoplay, loop]);
+  }, [lottie]);
 
   return (
     <div ref={ref} className={cn(
