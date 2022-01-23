@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next'
 import Home from 'components/Home'
-import { fetchPages } from 'lib/api/contentfulApi'
-import { recentPagesQuery } from 'lib/api/queries'
+import { fetchPages } from 'lib/api/contentful'
+import { recentPagesQuery } from 'lib/api/contentful/queries'
 
 const RECENT_PAGES_LIMIT = 4
 
