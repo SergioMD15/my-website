@@ -17,6 +17,8 @@ export const Entry = ({
   truncateDescription = false,
   showPublishDate = false
 } : Props) => {
+  const formattedPublishDate = new Date(page.createdAt).toLocaleDateString()
+
   return (
     <Link href={page.slug} as={`/${page.slug}`} passHref>
       <a>
@@ -41,7 +43,7 @@ export const Entry = ({
             }
             {showPublishDate &&
               <Text size='x-small' color='text-gray-500'>
-                Published on: {new Date(page.createdAt).toLocaleDateString()}
+                Published on: {formattedPublishDate}
               </Text>
             }
           </div>

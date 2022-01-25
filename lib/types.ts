@@ -1,42 +1,51 @@
-export type ValidSectionType = 'content' | 'markdownSection' | 'page'
+export type ValidSectionType = 'heading_1' | 'code' | 'paragraph' | 'bulleted_list_item'
 
-export type RichText = any
-
-type CommonSectionProps = {
-  typename?: ValidSectionType
+export type RichTextType = {
+  type: string,
+  text: {
+    content: string,
+    link: any
+  }
+  annotations: StylesAnnotations
+  plain_text: string
+  href: string | null
 }
 
-export type TextSectionType = {
-  sectionId: string
-  // FIXME: Improve this
-  richText: RichText
-} & CommonSectionProps
+type ValidSectionContent = {
+  [key in ValidSectionType]: {
+    text: Array<RichTextType>
+  }
+}
 
-export type MarkdownSectionType = {
-  sectionId: string
-  language: string
-  codeSnippet: string
-} & CommonSectionProps
+type StylesAnnotations = {
+  bold: boolean
+  italic: boolean
+  strikethrough: boolean
+  underline: boolean
+  code: boolean
+  color: boolean
+}
 
-export type SectionType = TextSectionType | MarkdownSectionType
+export type SectionType = {
+  type: ValidSectionType
+} & ValidSectionContent
 
 export type SimplePage = {
   title: string
   slug: string
   shortDescription?: string
   createdAt: string
-} & CommonSectionProps
+}
 
 export type PageType = {
-  sections: Array<SectionType>
-  updatedAt: string
+  content: Array<SectionType>
 } & SimplePage
 
 export type ExperienceType = {
   startDate: string
   endDate?: string
   position: string
-  description: RichText
+  description: RichTextType
 }
 
 export type CompanyExperience = {

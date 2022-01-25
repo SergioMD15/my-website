@@ -39,7 +39,7 @@ export const LottieLoader = ({
 
       return () => animation.destroy();
     }
-  }, [lottie]);
+  }, [lottie, animationName, autoplay, loop]);
 
   return (
     <div ref={ref} className={cn(

@@ -1,17 +1,14 @@
-import { MarkdownSectionType } from "lib/types"
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { CopyBlock, hopscotch as theme } from "react-code-blocks";
+import { DynamicSectionProps } from '..';
 
-export const MarkdownSection = ({ sectionId, language, codeSnippet } : MarkdownSectionType) => {
+export const MarkdownSection = ({ children } : DynamicSectionProps) => {
   return (
-    <div id={sectionId}>
-      <SyntaxHighlighter
-        language={language}
-        style={dracula}
-        showLineNumbers
-      >
-        {codeSnippet}
-      </SyntaxHighlighter>
-    </div>
+    <CopyBlock
+      text={children.plain_text}
+      language='JavaScript'
+      showLineNumbers
+      theme={theme}
+      codeBlock
+    />
   )
 }
