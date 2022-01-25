@@ -4,14 +4,14 @@ import Text from 'components/Text'
 import { SocialIcons } from 'components/Home/SocialIcons'
 
 type Props = {
-  hasMostRecentPages: boolean
+  hasRecentPages: boolean
 }
 
-export const WelcomeBanner = ({ hasMostRecentPages } : Props) => {
+export const WelcomeBanner = ({ hasRecentPages } : Props) => {
   return (
     <div className={cn(
       'flex flex-col pb-18 gap-y-12',
-      hasMostRecentPages ? 'pb-12' : 'py-16'
+      hasRecentPages ? 'pb-12' : 'py-16'
     )}>
       <div className='flex flex-col gap-y-8'>
         <div className='flex flex-row self-center items-end'>

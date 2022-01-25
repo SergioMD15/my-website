@@ -18,6 +18,7 @@ export const MostRecentPagesSection = ({ pages } : Props) => {
           <Entry
             key={page.title + index}
             page={page}
+            truncateDescription
           />
         ))}
       </div>

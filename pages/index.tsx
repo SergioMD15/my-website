@@ -1,13 +1,13 @@
 import { GetStaticProps } from 'next'
 import Home from 'components/Home'
-import { fetchPages } from 'lib/api/contentful'
-import { recentPagesQuery } from 'lib/api/contentful/queries'
+import { getPagesQuery } from 'lib/api/notion/queries'
+import { fetchNotion } from 'lib/api/notion'
 
 const RECENT_PAGES_LIMIT = 4
 
 export const getStaticProps: GetStaticProps = async () => {
-  const contentfulQuery = recentPagesQuery(RECENT_PAGES_LIMIT)
-  const mostRecentPages = await fetchPages(contentfulQuery)
+  const notionQuery = getPagesQuery(RECENT_PAGES_LIMIT)
+  const mostRecentPages = await fetchNotion(notionQuery)
 
   return {
     props: {

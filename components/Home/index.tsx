@@ -8,17 +8,15 @@ type Props = {
 }
 
 const Home = ({ mostRecentPages: pages } : Props) => {
-  const hasAnyPage = pages && pages.length > 0
+  const hasRecentPages = pages && pages.length > 0
 
   return (
-    <>
-      <Layout>
-        <div className='flex flex-col items-center gap-y-2'>
-          <WelcomeBanner hasMostRecentPages={hasAnyPage} />
-          {hasAnyPage && <MostRecentPagesSection pages={pages} /> }
-        </div>
-      </Layout>
-    </>
+    <Layout>
+      <div className='flex flex-col items-center gap-y-2'>
+        <WelcomeBanner hasRecentPages={hasRecentPages} />
+        {hasRecentPages && <MostRecentPagesSection pages={pages} /> }
+      </div>
+    </Layout>
   )
 }
 

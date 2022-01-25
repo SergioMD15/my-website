@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
 import TIL from 'components/TIL';
-import { fetchPages } from 'lib/api/contentful';
-import { allRecentPagesQuery } from 'lib/api/contentful/queries';
+import { getPagesQuery } from 'lib/api/notion/queries';
+import { fetchNotion } from 'lib/api/notion';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const contentfulQuery = allRecentPagesQuery()
-  const allPages = await fetchPages(contentfulQuery)
+  const notionQuery = getPagesQuery()
+  const allPages = await fetchNotion(notionQuery)
 
   if (!allPages || allPages.length === 0) {
     return {

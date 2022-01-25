@@ -6,6 +6,7 @@ type Query = {
 }
 
 export type QueryCallback = (id: string) => Query
+const NOTION_PAGESIZE_LIMIT = 100
 
 export const getPageBySlugQuery = (slug: string) : QueryCallback => {
   return (databaseId: string) => (
@@ -27,7 +28,7 @@ export const getPageBySlugQuery = (slug: string) : QueryCallback => {
   )
 }
 
-export const getPagesQuery = (pageSize: number) : QueryCallback => {
+export const getPagesQuery = (pageSize = NOTION_PAGESIZE_LIMIT) : QueryCallback => {
   return (databaseId: string) => (
     {
       database_id: databaseId,

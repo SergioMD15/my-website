@@ -18,7 +18,6 @@ const TIL = ({ allPages } : Props) => {
           <Entry
             key={page.slug}
             page={page}
-            showFullDescription
             showFullWidth
             showPublishDate />
         ))}

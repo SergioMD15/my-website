@@ -7,14 +7,14 @@ import Text from 'components/Text'
 type Props = {
   page: SimplePage
   showFullWidth?: boolean
-  showFullDescription?: boolean
+  truncateDescription?: boolean
   showPublishDate?: boolean
 }
 
 export const Entry = ({
   page,
   showFullWidth = false,
-  showFullDescription = false,
+  truncateDescription = false,
   showPublishDate = false
 } : Props) => {
   return (
@@ -33,7 +33,7 @@ export const Entry = ({
                 size='x-small'
                 weight='normal'
                 className={cn(
-                  !showFullDescription && 'line-clamp-2'
+                  truncateDescription ? 'line-clamp-3' : 'line-clamp-5'
                 )}
               >
                 {page.shortDescription}
