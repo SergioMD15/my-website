@@ -23,7 +23,7 @@ export const MostRecentPagesSection = ({ pages } : Props) => {
         ))}
       </div>
       <Button type='secondary' href='/til'>
-        Show all
+        See all
       </Button>
     </div>
   )
