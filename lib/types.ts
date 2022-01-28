@@ -1,4 +1,4 @@
-export type ValidSectionType = 'heading_1' | 'code' | 'paragraph' | 'bulleted_list_item'
+export type ValidSectionType = 'heading_1' | 'code' | 'paragraph'
 
 export type RichTextType = {
   type: string,
@@ -42,14 +42,9 @@ export type PageType = {
 } & SimplePage
 
 export type ExperienceType = {
-  startDate: string
-  endDate?: string
-  position: string
-  description: RichTextType
-}
-
-export type CompanyExperience = {
   companyName: string
   url: string
-  experience: Array<ExperienceType>
+  dates: string
+  position: string
+  description: Array<string>
 }

@@ -1,19 +1,19 @@
 import { ExperienceTimeline } from "components/ExperienceTimeline"
 import { Layout } from "components/Layout"
 import { PageHeader } from "components/Page/PageHeader"
-import { CompanyExperience } from "lib/types"
+import { ExperienceType } from "lib/types"
 
 type Props = {
-  companies: Array<CompanyExperience>
+  experiences: Array<ExperienceType>
 }
 
-const About = ({ companies } : Props) => {
-  const aboutMeDescription = "This sections talks about me (obviously)"
+const About = ({ experiences } : Props) => {
+  const aboutMeDescription = "and my past experiences"
   
   return (
     <Layout>
       <PageHeader title="About me" shortDescription={aboutMeDescription} centeredText />
-      <ExperienceTimeline companies={companies} />
+      <ExperienceTimeline experiences={experiences} />
     </Layout>
   )
 }

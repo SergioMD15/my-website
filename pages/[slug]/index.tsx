@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import Page from 'components/Page';
 import { getPageBySlugQuery } from 'lib/api/notion/queries';
-import { fetchNotion } from 'lib/api/notion';
+import { fetchTILPage } from 'lib/api/notion';
 
 export const getServerSideProps: GetServerSideProps = async ({
   query
@@ -9,7 +9,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   if (query && query?.slug) {
     const slug = query.slug as string
     const notionQuery = getPageBySlugQuery(slug)
-    const pageInfo = await fetchNotion(notionQuery)
+    const pageInfo = await fetchTILPage(notionQuery)
 
     if (!pageInfo || pageInfo.length === 0) {
       return {

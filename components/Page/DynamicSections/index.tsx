@@ -17,8 +17,6 @@ const chosenSection = (section: SectionType) => {
   switch (type) {
     case 'heading_1':
       return <Text.Header2>{section[type].text[0].plain_text}</Text.Header2>
-    case 'bulleted_list_item':
-      return <BulletedList>{section[type].text}</BulletedList>
     case 'paragraph':
       return <Text>{section[type].text[0].plain_text}</Text>
     case 'code':

@@ -1,13 +1,13 @@
 import { GetServerSideProps } from 'next';
 import About from 'components/About';
-import { fetchCompanyExperience } from 'lib/api/contentful';
-import { allCompanyExperienceQuery } from 'lib/api/contentful/queries';
+import { getCompanyExperienceQuery } from 'lib/api/notion/queries';
+import { fetchAboutMePage } from 'lib/api/notion';
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const contentfulQuery = allCompanyExperienceQuery()
-  const companies = await fetchCompanyExperience(contentfulQuery)
+  const notionQuery = getCompanyExperienceQuery()
+  const experiences = await fetchAboutMePage(notionQuery)
 
-  if (!companies || companies.length === 0) {
+  if (!experiences || experiences.length === 0) {
     return {
       notFound: true
     }
@@ -15,7 +15,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      companies
+      experiences
     }
   }
 }

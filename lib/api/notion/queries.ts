@@ -1,8 +1,9 @@
-type Query = {
-  database_id: string,
-  sorts?: Array<any>,
-  filter?: any,
+export type Query = {
+  database_id: string
+  sorts?: Array<any>
+  filter?: any
   pageSize?: number
+  initialCursor?: string
 }
 
 export type QueryCallback = (id: string) => Query
@@ -38,7 +39,21 @@ export const getPagesQuery = (pageSize = NOTION_PAGESIZE_LIMIT) : QueryCallback 
           direction: 'ascending',
         },
       ],
-      pageSize: pageSize
+      page_size: pageSize
+    }
+  )
+}
+
+export const getCompanyExperienceQuery = () : QueryCallback => {
+  return (databaseId: string) => (
+    {
+      database_id: databaseId,
+      sorts: [
+        {
+          property: 'Start date',
+          direction: 'ascending',
+        },
+      ],
     }
   )
 }
