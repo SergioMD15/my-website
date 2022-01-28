@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client"
 import { ExperienceType } from "lib/types"
-import { aboutMeHandler, tilHandler } from "./handlers"
+import { aboutMeHandler, HandlerCallbackType, tilHandler } from "./handlers"
 import { Query, QueryCallback } from "./queries"
 import { NotionTILPageType } from "./responseCleaner"
 
@@ -9,7 +9,10 @@ type ValidFetchResult = Array<NotionTILPageType | ExperienceType>
 
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
-const fetchNotion = async (query: Query, handler: any) : Promise<ValidFetchResult> => {
+const fetchNotion = async (
+  query: Query,
+  handler: HandlerCallbackType
+) : Promise<ValidFetchResult> => {
   const response = await notion.databases.query(query)
   
   return Promise.all(response.results.map(handler))
