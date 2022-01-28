@@ -1,4 +1,4 @@
-import { BulletedList } from "components/BulletedList"
+// import { BulletedList } from "components/BulletedList"
 import Text from "components/Text"
 import { RichTextType, SectionType } from "lib/types"
 import { MarkdownSection } from "./MarkdownSection"
