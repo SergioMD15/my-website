@@ -1,6 +1,12 @@
 export type ValidSectionType = 'heading_1' | 'code' | 'paragraph'
 
-export type RichTextType = {
+export type RichTextCodeType = {
+  caption?: Array<string>,
+  text: Array<RichTextParagraphType>,
+  language: string
+}
+
+export type RichTextParagraphType = {
   type: string,
   text: {
     content: string,
@@ -8,22 +14,22 @@ export type RichTextType = {
   }
   annotations: StylesAnnotations
   plain_text: string
-  href: string | null
+  href?: string | null
 }
 
 type ValidSectionContent = {
   [key in ValidSectionType]: {
-    text: Array<RichTextType>
-  }
+    text: Array<RichTextParagraphType>
+  } | RichTextCodeType
 }
 
-type StylesAnnotations = {
+export type StylesAnnotations = {
   bold: boolean
   italic: boolean
   strikethrough: boolean
   underline: boolean
   code: boolean
-  color: boolean
+  color?: string
 }
 
 export type SectionType = {

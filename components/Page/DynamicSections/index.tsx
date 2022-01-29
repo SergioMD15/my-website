@@ -1,6 +1,7 @@
 // import { BulletedList } from "components/BulletedList"
+import { RichText } from "components/RichText"
 import Text from "components/Text"
-import { RichTextType, SectionType } from "lib/types"
+import { RichTextCodeType, RichTextParagraphType, SectionType } from "lib/types"
 import { MarkdownSection } from "./MarkdownSection"
 
 type Props = {
@@ -8,19 +9,36 @@ type Props = {
 }
 
 export type DynamicSectionProps = {
-  children: RichTextType
+  children: RichTextParagraphType
 }
 
 const chosenSection = (section: SectionType) => {
   const type = section.type
+  let sectionContent
 
   switch (type) {
     case 'heading_1':
-      return <Text.Header2>{section[type].text[0].plain_text}</Text.Header2>
+      sectionContent = section[type].text as Array<RichTextParagraphType>
+
+      return <Text.Header2 className="mt-8">{sectionContent[0].plain_text}</Text.Header2>
     case 'paragraph':
-      return <Text>{section[type].text[0].plain_text}</Text>
+      sectionContent = section[type].text as Array<RichTextParagraphType>
+
+      return (
+        <Text size="normal" className="inline-block pb-2">
+          {sectionContent.map((paragraphContent, index) => {
+            return <RichText key={index}>{paragraphContent}</RichText>
+          })}
+        </Text>
+      )
     case 'code':
-      return <MarkdownSection>{section[type].text[0]}</MarkdownSection>
+      sectionContent = section[type] as RichTextCodeType
+
+      return (
+        <MarkdownSection language={sectionContent.language}>
+          {sectionContent.text[0]}
+        </MarkdownSection>
+      )
     default:
       return null
   }
@@ -28,7 +46,7 @@ const chosenSection = (section: SectionType) => {
 
 export const DynamicSection = ({ section } : Props) => {
   return (
-    <div className="pb-8">
+    <div className="pb-6">
       {chosenSection(section)}
     </div>
   )

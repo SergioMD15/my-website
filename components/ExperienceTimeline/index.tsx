@@ -34,9 +34,9 @@ export const ExperienceTimeline = ({ experiences } : Props) => {
             icon={companyIcon}
             date={dates}
           >
-            <Text.Header1 weight="medium" size="medium">
+            <Text tagName="h1" weight="medium" size="medium">
               {position}
-            </Text.Header1>
+            </Text>
             <div className="px-6 pt-4">
               <ul className="list-disc">
                 {description.map((descriptionFragment, index) => {

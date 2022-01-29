@@ -1,14 +1,23 @@
-import { CopyBlock, hopscotch as theme } from "react-code-blocks";
+import { CopyBlock, dracula as theme } from "react-code-blocks";
 import { DynamicSectionProps } from '..';
 
-export const MarkdownSection = ({ children } : DynamicSectionProps) => {
+type Props = {
+  language: string
+} & DynamicSectionProps
+
+export const MarkdownSection = ({ children, language } : Props) => {
   return (
     <CopyBlock
       text={children.plain_text}
-      language='JavaScript'
+      language='jsx'
       showLineNumbers
       theme={theme}
       codeBlock
+      customStyle={{
+        padding: '16px',
+        fontSize: '20px',
+        fontFamily: 'Fira Code'
+      }}
     />
   )
 }

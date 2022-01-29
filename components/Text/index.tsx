@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 type TailwindColor = 'red' | 'gray'
 
@@ -9,13 +9,18 @@ type TailwindVariant =
 
 export type TailwindTextColor = `text-${TailwindColor}-${TailwindVariant}`
 
+type HeaderProps = {
+  className?: string
+  children: ReactNode
+}
+
 type Props = {
   size?: keyof typeof TextSize
   weight?: keyof typeof TextWeight
   color?: TailwindTextColor
-  className?: string
-  children: ReactNode
-}
+  tagName?: string
+} & HeaderProps
+
 
 const TextSize = {
   'x-small': 'text-base',
@@ -37,55 +42,56 @@ const Text = ({
   weight = 'normal',
   color = 'text-gray-800',
   className,
+  tagName = 'p',
   children
 } : Props) => {
   return (
-    <p className={cn(
-      TextSize[size],
-      TextWeight[weight],
-      color,
-      className
-    )}>
-      {children}
-    </p>
+    React.createElement(
+      tagName,
+      {
+        className: cn(
+          TextSize[size],
+          TextWeight[weight],
+          color,
+          className
+        )
+      },
+      children
+    )
   )
 }
 
 const Header1 = ({
-  size = 'x-large',
-  weight = 'semibold',
-  color = 'text-gray-800',
   className,
   children
-} : Props) => {
+} : HeaderProps) => {
   return (
-    <h1 className={cn(
-      TextSize[size],
-      TextWeight[weight],
-      color,
-      className
-    )}>
+    <Text
+      size='x-large'
+      weight='semibold'
+      color='text-gray-800'
+      tagName='h1'
+      className={className}
+    >
       {children}
-    </h1>
+    </Text>
   )
 }
 
 const Header2 = ({
-  size = 'large',
-  weight = 'semibold',
-  color = 'text-gray-800',
   className,
   children
-} : Props) => {
+} : HeaderProps) => {
   return (
-    <h2 className={cn(
-      TextSize[size],
-      TextWeight[weight],
-      color,
-      className
-    )}>
+    <Text
+      size='large'
+      weight='semibold'
+      color='text-gray-800'
+      tagName='h2'
+      className={className}
+    >
       {children}
-    </h2>
+    </Text>
   )
 }
 
