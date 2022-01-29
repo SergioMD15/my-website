@@ -1,8 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My-website
 
-## Getting Started
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). Aside Next.js, I've used TailwindCSS for the styles, Notion as a CMS, and Vercel to deploy the project.
 
-First, run the development server:
+I took advantage of some Next.js most interesting features: SSG (Static-Side Generation) and ISR (Incremental Side Regeneration) to make the website lightning fast and update every 60 seconds (it could be much more as I'm the only one updating the content, but it's ok like that).
+
+# How to run
+
+To run the development server:
 
 ```bash
 npm run dev
@@ -10,25 +14,15 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To build the static pages and run as it would run in production (it is faster):
+```bash
+npm run build && npm run start
+# or
+yarn build && yarn start
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# Usage and improvement
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Feel free to reuse as much as you want from this code, or even use it as a template to build your own website.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Also, I encourage anyone that checks the code to ping me about any single potential problem or improvement they find. If you do so, please add an explanation with your change proposal, I'd love to learn why I should make the changes 🙂
