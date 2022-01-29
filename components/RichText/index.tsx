@@ -18,7 +18,7 @@ const sanitizeColor = (color: string | undefined) : string => {
 }
 
 const annotationClassnames = {
-  bold: 'font-medium',
+  bold: 'font-bold',
   italic: 'italic',
   strikethrough: 'line-through',
   underline: 'underline',
