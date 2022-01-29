@@ -14,8 +14,8 @@ export const WelcomeBanner = ({ hasRecentPages } : Props) => {
       hasRecentPages ? 'pb-12' : 'py-16'
     )}>
       <div className='flex flex-col gap-y-8'>
-        <div className='flex flex-row self-center items-end'>
-          <Text.Header1 className='items-start'>
+        <div className='flex flex-row md:self-center items-end'>
+          <Text.Header1>
             Hey!
           </Text.Header1>
           <LottieLoader animationName='wave' />

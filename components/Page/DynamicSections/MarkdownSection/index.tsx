@@ -1,5 +1,5 @@
-import { CopyBlock, dracula as theme } from "react-code-blocks";
-import { DynamicSectionProps } from '..';
+import { CopyBlock, dracula as theme } from "react-code-blocks"
+import { DynamicSectionProps } from '..'
 
 type Props = {
   language: string

@@ -1,6 +1,6 @@
-import cn from 'classnames';
-import type { LottiePlayer } from 'lottie-web';
-import { useEffect, useRef, useState } from 'react';
+import cn from 'classnames'
+import type { LottiePlayer } from 'lottie-web'
+import { useEffect, useRef, useState } from 'react'
 
 type AvailableAnimations = 'wave' | 'error'
 
@@ -20,12 +20,12 @@ export const LottieLoader = ({
   loop = true,
   autoplay = true
 } : Props) => {
-  const ref = useRef(null);
-  const [lottie, setLottie] = useState<LottiePlayer | null>(null);
+  const ref = useRef(null)
+  const [lottie, setLottie] = useState<LottiePlayer | null>(null)
 
   useEffect(() => {
     import('lottie-web').then(Lottie => setLottie(Lottie.default))
-  }, []);
+  }, [])
 
   useEffect(() => {
     if (lottie && ref.current) {
@@ -35,11 +35,11 @@ export const LottieLoader = ({
         loop: loop,
         autoplay: autoplay,
         path: `/lotties/${animationName}.json`
-      });
+      })
 
-      return () => animation.destroy();
+      return () => animation.destroy()
     }
-  }, [lottie, animationName, autoplay, loop]);
+  }, [lottie, animationName, autoplay, loop])
 
   return (
     <div ref={ref} className={cn(

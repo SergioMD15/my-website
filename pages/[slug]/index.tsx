@@ -1,7 +1,7 @@
-import { GetStaticProps } from 'next';
-import Page from 'components/Page';
-import { getPageBySlugQuery, getPagesQuery } from 'lib/api/notion/queries';
-import { fetchTILPage } from 'lib/api/notion';
+import { GetStaticProps } from 'next'
+import Page from 'components/Page'
+import { getPageBySlugQuery, getPagesQuery } from 'lib/api/notion/queries'
+import { fetchTILPage } from 'lib/api/notion'
 
 export const getStaticProps: GetStaticProps = async ({
   params

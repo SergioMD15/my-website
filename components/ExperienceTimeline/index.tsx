@@ -1,9 +1,9 @@
-import React from "react";
-import { CompanyIcon } from "components/CompanyIcon";
-import Text from "components/Text";
+import React from "react"
+import { CompanyIcon } from "components/CompanyIcon"
+import Text from "components/Text"
 import { ExperienceType } from "lib/types"
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/style.min.css'
 
 type Props = {
   experiences: Array<ExperienceType>

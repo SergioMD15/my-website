@@ -1,7 +1,7 @@
-import { GetStaticProps } from 'next';
-import About from 'components/About';
-import { getCompanyExperienceQuery } from 'lib/api/notion/queries';
-import { fetchAboutMePage } from 'lib/api/notion';
+import { GetStaticProps } from 'next'
+import About from 'components/About'
+import { getCompanyExperienceQuery } from 'lib/api/notion/queries'
+import { fetchAboutMePage } from 'lib/api/notion'
 
 export const getStaticProps: GetStaticProps = async () => {
   const notionQuery = getCompanyExperienceQuery()

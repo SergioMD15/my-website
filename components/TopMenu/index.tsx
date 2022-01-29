@@ -22,12 +22,12 @@ export const TopMenu = () => {
 
   useEffect(() => {
     function watchScroll() {
-      window.addEventListener("scroll", checkScrolledTop);
+      window.addEventListener("scroll", checkScrolledTop)
     }
-    watchScroll();
+    watchScroll()
     return () => {
-      window.removeEventListener("scroll", checkScrolledTop);
-    };
+      window.removeEventListener("scroll", checkScrolledTop)
+    }
   }, [])
 
   return (

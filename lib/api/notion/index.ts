@@ -4,9 +4,7 @@ import { aboutMeHandler, HandlerCallbackType, tilHandler } from "./handlers"
 import { Query, QueryCallback } from "./queries"
 import { NotionTILPageType } from "./responseCleaner"
 
-
 type ValidFetchResult = Array<NotionTILPageType | ExperienceType>
-
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
 const fetchNotion = async (
