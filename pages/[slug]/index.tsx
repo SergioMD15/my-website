@@ -1,13 +1,13 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Page from 'components/Page';
-import { getPageBySlugQuery } from 'lib/api/notion/queries';
+import { getPageBySlugQuery, getPagesQuery } from 'lib/api/notion/queries';
 import { fetchTILPage } from 'lib/api/notion';
 
-export const getServerSideProps: GetServerSideProps = async ({
-  query
+export const getStaticProps: GetStaticProps = async ({
+  params
 }) => {
-  if (query && query?.slug) {
-    const slug = query.slug as string
+  if (params && params?.slug) {
+    const slug = params.slug as string
     const notionQuery = getPageBySlugQuery(slug)
     const pageInfo = await fetchTILPage(notionQuery)
 
@@ -20,13 +20,25 @@ export const getServerSideProps: GetServerSideProps = async ({
     return {
       props: {
         pageInfo: pageInfo[0]
-      }
+      },
+      revalidate: 60
     }
   }
 
   return {
     notFound: true
   }
+}
+
+export async function getStaticPaths() {
+  const notionQuery = getPagesQuery()
+  const allPages = await fetchTILPage(notionQuery)
+
+  const paths = allPages.map((page) => ({
+    params: { slug: page.slug },
+  }))
+
+  return { paths, fallback: 'blocking' }
 }
 
 export default Page

@@ -16,7 +16,8 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       allPages
-    }
+    },
+    revalidate: 60
   }
 }
 

@@ -14,7 +14,6 @@ export type DynamicSectionProps = {
 const chosenSection = (section: SectionType) => {
   const type = section.type
   let sectionContent
-  console.log(section)
 
   switch (type) {
     case 'heading_1':

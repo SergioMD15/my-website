@@ -1,9 +1,9 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import About from 'components/About';
 import { getCompanyExperienceQuery } from 'lib/api/notion/queries';
 import { fetchAboutMePage } from 'lib/api/notion';
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const notionQuery = getCompanyExperienceQuery()
   const experiences = await fetchAboutMePage(notionQuery)
 
@@ -16,7 +16,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       experiences
-    }
+    },
+    revalidate: 60
   }
 }
 
