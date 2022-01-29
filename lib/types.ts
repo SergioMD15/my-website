@@ -1,4 +1,4 @@
-export type ValidSectionType = 'heading_1' | 'code' | 'paragraph'
+export type ValidSectionType = 'heading_1' | 'code' | 'paragraph' | 'bulleted_list_item'
 
 export type RichTextCodeType = {
   caption?: Array<string>,

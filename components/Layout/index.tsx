@@ -13,7 +13,7 @@ export const Layout = ({ children } : Props) => {
         <title>Sergio Mosquera | Full stack developer</title>
       </Head>
       <TopMenu/>
-      <div className='flex flex-col max-w-5xl mx-auto px-8 lg:px-0 py-8 pb-24'>
+      <div className='flex flex-col max-w-5xl mx-auto px-8 lg:px-0 py-8 pb-16'>
         {children}
       </div>
     </>

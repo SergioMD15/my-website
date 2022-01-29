@@ -15,7 +15,7 @@ export const MarkdownSection = ({ children, language } : Props) => {
       codeBlock
       customStyle={{
         padding: '16px',
-        fontSize: '20px',
+        fontSize: '16px',
         fontFamily: 'Fira Code'
       }}
     />

@@ -14,11 +14,7 @@ export const PageHeader = ({
 } : Props) => {
   return (
     <div className='flex flex-col gap-y-8 py-8 md:py-12 mb-8 border-b-2'>
-      <Text.Header1
-        className={cn(
-          centeredText && 'text-center'
-        )}
-      >
+      <Text.Header1 className={cn(centeredText && 'text-center')}>
         {title}
       </Text.Header1>
       {shortDescription &&

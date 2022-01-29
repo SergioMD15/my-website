@@ -7,6 +7,10 @@ type Props = {
   children: RichTextParagraphType
 }
 
+type PlainTextProps = {
+  extraClassNames?: string
+} & Props
+
 const sanitizeColor = (color: string | undefined) : string => {
   if (!color || color === 'default') return ''
   
@@ -42,9 +46,13 @@ const getAnnotationsClassnames = (annotations : StylesAnnotations) : string => {
   return `${formattingClassnames.join(' ')} ${sanitisedColor}`
 }
 
-const PlainTextRepresentation = ({ children } : Props) => {
+const PlainTextRepresentation = ({ children, extraClassNames = '' } : PlainTextProps) => {
   return (
-    <span className={getAnnotationsClassnames(children.annotations)}>
+    <span className={cn(
+      getAnnotationsClassnames(children.annotations),
+      'text-lg',
+      extraClassNames
+    )}>
       {children.plain_text}
     </span>
   )
@@ -55,7 +63,7 @@ export const RichText = ({ children } : Props) => {
     ? (
       <Link href={children.href} passHref>
         <a>
-          <PlainTextRepresentation>
+          <PlainTextRepresentation extraClassNames="underline">
             {children}
           </PlainTextRepresentation>
         </a>
