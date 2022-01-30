@@ -63,7 +63,7 @@ export const getCompanyExperienceQuery = () : QueryCallback => {
       sorts: [
         {
           property: 'Start date',
-          direction: 'ascending',
+          direction: 'descending',
         },
       ]
     }
