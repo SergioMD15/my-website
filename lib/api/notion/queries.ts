@@ -8,6 +8,12 @@ export type Query = {
 
 export type QueryCallback = (id: string) => Query
 const NOTION_PAGESIZE_LIMIT = 100
+const isPublished = {
+  property: 'Published',
+  checkbox: {
+    equals: true
+  }
+}
 
 export const getPageBySlugQuery = (slug: string) : QueryCallback => {
   return (databaseId: string) => (
@@ -20,10 +26,15 @@ export const getPageBySlugQuery = (slug: string) : QueryCallback => {
         },
       ],
       filter: {
-        property: 'Slug',
-        text: {
-          equals: slug
-        }
+        and: [
+          {
+            property: 'Slug',
+            text: {
+              equals: slug
+            }
+          },
+          isPublished
+        ]
       }
     }
   )
@@ -39,7 +50,8 @@ export const getPagesQuery = (pageSize = NOTION_PAGESIZE_LIMIT) : QueryCallback 
           direction: 'ascending',
         },
       ],
-      page_size: pageSize
+      page_size: pageSize,
+      filter: isPublished
     }
   )
 }
@@ -53,7 +65,7 @@ export const getCompanyExperienceQuery = () : QueryCallback => {
           property: 'Start date',
           direction: 'ascending',
         },
-      ],
+      ]
     }
   )
 }
