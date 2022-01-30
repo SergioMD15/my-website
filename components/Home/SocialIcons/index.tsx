@@ -19,7 +19,7 @@ const socialLinks = [
   },
   {
     socialNetwork: 'mail',
-    href: 'mailto:sergiomosquera@gmail.com',
+    href: 'mailto:sergiomosquera96@gmail.com',
     icon: GrMail
   }
 ]
