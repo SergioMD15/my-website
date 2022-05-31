@@ -7,15 +7,16 @@ type Props = {
   pageInfo: PageType
 }
 
-const Page = ({ pageInfo } : Props) => {
+const Page = ({ pageInfo }: Props) => {
   const hasSections = pageInfo.content && pageInfo.content.length > 0
 
   return (
-    <Layout>
+    <Layout proseWidth>
       <PageHeader {...pageInfo} />
-      {hasSections && pageInfo.content.map((section, index) => (
-        <DynamicSection key={`${section.type}-${index}`} section={section} />
-      ))}
+      {hasSections &&
+        pageInfo.content.map((section, index) => (
+          <DynamicSection key={`${section.type}-${index}`} section={section} />
+        ))}
     </Layout>
   )
 }

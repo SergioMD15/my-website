@@ -1,20 +1,18 @@
 module.exports = {
-  mode: "jit",
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-  ],
+  mode: 'jit',
+  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
+    maxWidth: {
+      prose: '75ch',
+    },
     extend: {
       colors: {
-        'light-blue': '#fbfbfd'
+        'light-blue': '#fbfbfd',
       },
       spacing: {
-        '128': '32rem'
-      }
+        128: '32rem',
+      },
     },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp')
-  ],
+  plugins: [require('@tailwindcss/line-clamp')],
 }
