@@ -9,7 +9,12 @@
 /coverage
 
 # next.js
-/.next/
+!/.next/
+
+# ignore everything except analyze
+/.next/*
+!/.next/analyze/
+
 /out/
 
 # production

@@ -43,6 +43,7 @@ jobs:
           NOTION_KEY: ${{ secrets.NOTION_KEY }}
           NOTION_TIL_DATABASE_ID: ${{ secrets.NOTION_TIL_DATABASE_ID }}
           NOTION_ABOUT_ME_DATABASE_ID: ${{ secrets.NOTION_ABOUT_ME_DATABASE_ID }}
+          BUNDLE_ANALYZE: true
         # change this if your site requires a custom build command
         run: ./node_modules/.bin/next build
 
