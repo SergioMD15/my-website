@@ -39,6 +39,10 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}
 
       - name: Build next.js app
+        env:
+          NOTION_KEY: ${{ secrets.NOTION_KEY }}
+          NOTION_TIL_DATABASE_ID: ${{ secrets.NOTION_TIL_DATABASE_ID }}
+          NOTION_ABOUT_ME_DATABASE_ID: ${{ secrets.NOTION_ABOUT_ME_DATABASE_ID }}
         # change this if your site requires a custom build command
         run: ./node_modules/.bin/next build
 
