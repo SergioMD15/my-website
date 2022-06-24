@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     maxWidth: {
       prose: '75ch',
+      '5xl': '64rem',
     },
     extend: {
       colors: {

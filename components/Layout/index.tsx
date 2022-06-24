@@ -8,7 +8,7 @@ type Props = {
   proseWidth?: boolean
 }
 
-export const Layout = ({ children, proseWidth }: Props) => {
+export const Layout = ({ children, proseWidth = false }: Props) => {
   return (
     <>
       <Head>
