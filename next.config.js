@@ -6,5 +6,6 @@ module.exports = withBundleAnalyzer({
     NOTION_KEY: process.env.NOTION_KEY,
     NOTION_TIL_DATABASE_ID: process.env.NOTION_TIL_DATABASE_ID,
     NOTION_ABOUT_ME_DATABASE_ID: process.env.NOTION_ABOUT_ME_DATABASE_ID,
+    ANALYTICS_TRACKING_ID: 'G-9MQKVTFCYW',
   },
 })

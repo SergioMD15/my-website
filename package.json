@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@analytics/google-analytics": "^0.5.3",
     "@next/bundle-analyzer": "^12.1.6",
     "@notionhq/client": "^0.4.12",
     "@tailwindcss/line-clamp": "^0.3.1",
+    "analytics": "^0.8.1",
     "classnames": "^2.3.1",
     "dotenv": "^10.0.0",
     "lodash.groupby": "^4.6.0",
