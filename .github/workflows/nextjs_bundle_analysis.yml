@@ -43,6 +43,7 @@ jobs:
           NOTION_KEY: ${{ secrets.NOTION_KEY }}
           NOTION_TIL_DATABASE_ID: ${{ secrets.NOTION_TIL_DATABASE_ID }}
           NOTION_ABOUT_ME_DATABASE_ID: ${{ secrets.NOTION_ABOUT_ME_DATABASE_ID }}
+          BUNDLE_ANALYZE: true
         # change this if your site requires a custom build command
         run: ./node_modules/.bin/next build
 
@@ -59,6 +60,7 @@ jobs:
 
       - name: Download base branch bundle stats
         uses: dawidd6/action-download-artifact@v2
+        continue-on-error: true
         if: success() && github.event.number
         with:
           workflow: nextjs_bundle_analysis.yml
